@@ -1,0 +1,45 @@
+<!--'update.html'-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>add job</title><!--'display.html'-->
+		<link rel="stylesheet" href="../static/style.css">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TOOLS</h1>
+				<ul>
+					<li><a href="{{url_for('studentslist')}}">Students</a></li>
+					<li><a href="{{url_for('allapplications')}}">Applications</a></li>
+					<li><a href="{{url_for('interviews')}}">Interviews</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('all_companies')}}">Companies</a></li>
+					<li><a href="{{url_for('officer_jobs')}}">Jobs</a></li>
+					<li><a href="{{url_for('addjob')}}">ADD Job</a></li>
+					<li><a href="{{url_for('addcompany')}}">ADD company</a></li>
+					<li><a href="{{url_for('addstudent')}}">ADD Student</a></li>
+				</ul>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in add Job Page!! </h2>				 
+				</div></br></br>
+				<div class="contentbar">
+				<h1>Add job</h1></br>
+			<form action="{{ url_for('addjob') }}" method="post" autocomplete="off">
+					<input type="text" name="Company_ID" placeholder="Enter Company_ID" class="textbox" id="Company_ID" required></br></br>
+					<input type="text" name="Position" placeholder="Enter Position" class="textbox" id="Position" required></br></br>
+                    <input type="text" name="Job_Description" placeholder="Enter Job_Description" class="textbox" id="JD" required></br></br>
+                    <input type="text" name="Requirements" placeholder="Enter Requirements" class="textbox" id="Requirements" required></br></br>
+                    <input type="number" name="Salary" placeholder="Enter salary" class="textbox" id="salary" required></br></br>
+                    <input type="date" name="date" placeholder="Enter date" class="textbox" id="deadlinedate" required></br></br>
+                    <input type="submit" class="btn" value="schedule" style="display: block; margin-top: 1%;">
+			</form>				 
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!--'display.html'-->
+
+<html lang="en">
+	<head>
+		<title>display</title>
+		<link rel="stylesheet" href="../static/style.css">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TOOLS</h1>
+				<ul>
+					<li><a href="{{url_for('complete')}}">Complete Profile</a></li>
+					<li><a href="{{url_for('display')}}">My profile</a></li>
+					<li><a href="{{url_for('update')}}">Update Details</a></li>
+					<li><a href="{{url_for('jobs')}}">Jobs</a></li>
+					<li><a href="{{url_for('myapplications')}}">My Applications</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in Display Page!! </h2>				 
+				</div>
+
+                <div class="contentbar">
+					<h1>Your Details</h1> </br>
+					{% block content %}
+						<div class="border">
+							<table class="worddark"></br></br></br></br>
+								<tr>
+									<td>Name:</td>
+									<td>{{ account['Name'] }}</td>
+								</tr>
+								<tr>
+									<td>USN:</td>
+									<td>{{ account['USN'] }}</td>
+								</tr>
+								<tr>
+									<td>Email ID:</td>
+									<td>{{ account['Email'] }}</td>
+								</tr>
+								<tr>
+									<td>Department:</td>
+									<td>{{ account['Department'] }}</td>
+								</tr>
+								<tr>
+									<td>Current Semester:</td>
+									<td>{{ account['Current_Semester'] }}</td>
+								</tr>
+								<tr>
+									<td>CGPA:</td>
+									<td>{{ account['CGPA'] }}</td>
+								</tr>
+								<tr>
+									<td>LinkedIn ID:</td>
+									<td>{{ account['LinkedIn_ID'] }}</td>
+								</tr>
+								<tr>
+									<td>Phone:</td>
+									<td>{{ account['Phone'] }}</td>
+								</tr>
+								<tr>
+									<td>Year of Graduation:</td>
+									<td>{{ account['Year_of_Graduation'] }}</td>
+								</tr>					 
+							</table>
+						</div>
+					{% endblock %}									 
+				</div>
+
+			</div>
+		</div>
+	</body>
+</html>

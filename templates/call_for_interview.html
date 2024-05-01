@@ -1,0 +1,44 @@
+<!--'update.html'-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>update</title><!--'display.html'-->
+		<link rel="stylesheet" href="../static/style.css">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TOOLS</h1>
+				<ul>
+					<li><a href="{{url_for('studentslist')}}">Students</a></li>
+					<li><a href="{{url_for('allapplications')}}">Applications</a></li>
+					<li><a href="{{url_for('interviews')}}">Interviews</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('all_companies')}}">Companies</a></li>
+					<li><a href="{{url_for('officer_jobs')}}">Jobs</a></li>
+					<li><a href="{{url_for('addjob')}}">ADD Job</a></li>
+					<li><a href="{{url_for('addcompany')}}">ADD company</a></li>
+					<li><a href="{{url_for('addstudent')}}">ADD Student</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in call_for_interview Page!! </h2>				 
+				</div></br></br>
+				<div class="contentbar">
+				<h1>schedule the interview</h1></br>
+			<form action="{{ url_for('call_for_interview') }}" method="post" autocomplete="off">
+					<div class="msg">Application No.:{{id}}</div>
+                    <input type="hidden" name="application_id" value="{{ id }}">
+					<input type="date" name="date" placeholder="Enter date" class="textbox" id="date" required></br></br>
+					<select name="mode" id="mode">
+                        <option value="offline">Offline</option>
+                        <option value="online">Online</option>
+					<input type="submit" class="btn" value="schedule" style="display: block; margin-top: 1%;">
+			</form>				 
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

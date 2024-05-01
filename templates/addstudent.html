@@ -1,0 +1,47 @@
+<!--'update.html'-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>add student</title><!--'display.html'-->
+		<link rel="stylesheet" href="../static/style.css">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TOOLS</h1>
+				<ul>
+					<li><a href="{{url_for('studentslist')}}">Students</a></li>
+					<li><a href="{{url_for('allapplications')}}">Applications</a></li>
+					<li><a href="{{url_for('interviews')}}">Interviews</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('all_companies')}}">Companies</a></li>
+					<li><a href="{{url_for('officer_jobs')}}">Jobs</a></li>
+					<li><a href="{{url_for('addjob')}}">ADD Job</a></li>
+					<li><a href="{{url_for('addcompany')}}">ADD company</a></li>
+					<li><a href="{{url_for('addstudent')}}">ADD Student</a></li>
+				</ul>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in addstudent Page!! </h2>				 
+				</div></br></br>
+				<div class="contentbar">
+				<h1>Add student</h1></br>
+			<form action="{{ url_for('addstudent') }}" method="post" autocomplete="off" enctype="multipart/form-data">
+					<input type="text" name="User_id" placeholder="Enter User_id" class="textbox" id="User_id" required></br></br>
+					<input type="text" name="Username" placeholder="Enter Username" class="textbox" id="Username" required></br></br>
+                    <input type="text" name="PasswordHash" placeholder="Enter PasswordHash" class="textbox" id="PasswordHash" required></br></br>
+                    <input type="submit" class="btn" value="ADD" style="display: block; margin-top: 1%;">
+			</form>	
+            
+            <form action="{{ url_for('addstudent') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file"style="display:block; margin-top:2%" id="fileInput">
+                <input type="submit" class="btn" value="ADD file" style="display: block; margin-top: 1%;">
+            </form>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

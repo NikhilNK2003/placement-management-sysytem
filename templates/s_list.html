@@ -1,0 +1,61 @@
+<!--'teacher dashboard.html'-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Student_list</title>
+		<link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	</head>
+
+	<body bgcolor="#fff">
+		<div class="one">
+			<div class="two">
+				<h1>TOOLS</h1>
+				<ul>
+					<li><a href="{{url_for('studentslist')}}">Students</a></li>
+					<li><a href="{{url_for('allapplications')}}">Applications</a></li>
+					<li><a href="{{url_for('interviews')}}">Interviews</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('all_companies')}}">Companies</a></li>
+					<li><a href="{{url_for('officer_jobs')}}">Jobs</a></li>
+					<li><a href="{{url_for('addjob')}}">ADD Job</a></li>
+					<li><a href="{{url_for('addcompany')}}">ADD company</a></li>
+					<li><a href="{{url_for('addstudent')}}">ADD Student</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in students list page!! </h2>				 
+				</div></br></br>
+				<div class="contentbar">
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col">USN</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Department</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {% for s in slist%}
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <th scope="row">{{ s['USN'] }}</th>
+                            <td>{{ s['Name'] }}</td>
+                            <td>{{ s['Email'] }}</td>
+                            <td>{{ s['Department'] }}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

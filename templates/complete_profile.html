@@ -1,0 +1,49 @@
+<!--'complete_profile.html' -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>complete-profile</title>
+		<link rel="stylesheet" href="../static/style.css">
+	</head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two">
+				<h1>TOOLS</h1>
+				<ul>
+					<li><a href="{{url_for('display')}}">My profile</a></li>
+					<li><a href="{{url_for('update')}}">Update Details</a></li>
+					<li><a href="{{url_for('jobs')}}">Jobs</a></li>
+					<li><a href="{{url_for('myapplications')}}">My Applications</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+				</ul>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in complete profile Page!! </h2>				 
+				</div></br></br>
+				<div class="contentbar">
+				<h1>Fill Your Details to Update</h1></br>
+			<form action="{{ url_for('complete') }}" method="post" autocomplete="off">
+					<div class="msg">{{ msg }}</div>
+					<input type="text" name="USN" placeholder="Enter Your USN" class="textbox" id="USN" required></br></br>
+					<input type="email" name="email" placeholder="Enter Your Email ID" class="textbox" id="email" required></br></br>
+					<input type="text" name="department" placeholder="Enter Your Department" class="textbox" id="department" required></br></br>
+                    <input type="text" name="sem" placeholder="Enter Your Semester" class="textbox" id="sem" required></br></br>
+					<input type="number" name="year" placeholder="Enter Your year" class="textbox" id="year" required></br></br>
+                    <input type="text" name="CGPA" placeholder="Enter Your CGPA" class="textbox" id="CGPA" required></br></br>
+					<input type="number" name="graduation" placeholder="Enter Your year of graduation" class="textbox" id="graduation" required></br></br>
+                    <input type="text" name="phone" placeholder="Enter Your phone" class="textbox" id="phone" required></br></br>
+					<input type="number" name="tenth" placeholder="10 th percentage" class="textbox" id="tenth" required></br></br>
+                    <input type="number" name="twelfth" placeholder="12 th percentage" class="textbox" id="twelfth" required></br></br>
+                    <input type="text" name="aadhar" placeholder="Aadhar number" class="textbox" id="aadhar" required></br></br>
+                    <input type="text" name="PAN" placeholder="PAN Number" class="textbox" id="PAN" required></br></br>
+                    <input type="url" name="Linkedin" placeholder="LinkedIn_ID" class="textbox" id="Linkedin" required></br></br>
+                    <input type="submit" class="btn" value="Update">
+			</form>				 
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

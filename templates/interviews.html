@@ -1,0 +1,116 @@
+<!--'applications.html'-->
+
+<html lang="en">
+	<head>
+		<title>interviews</title>
+		<link rel="stylesheet" href="../static/style.css">    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+			.job-description-column {
+				max-width: 200px; 
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: wrap;
+			}
+			.tooltip-text {
+				display: none;
+				position: absolute;
+				background-color: white;
+				padding: 10px;
+				border: 1px solid #ccc;
+				z-index: 9999;
+			}
+			.job-description-column:hover .tooltip-text {
+				display: block;
+			}
+            .job-requirement-col {
+				max-width: 200px; /* Set your desired width */
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: wrap;
+			}
+			.tooltip-text {
+				display: none;
+				position: absolute;
+				background-color: white;
+				padding: 10px;
+				border: 1px solid #ccc;
+				z-index: 9999;
+			}
+			.job-requirement-col:hover .tooltip-text {
+				display: block;
+			}
+		</style>
+    </head>
+	<body bgcolor="#e6ffee">
+		<div class="one">
+			<div class="two" align="center">
+				<h1>TOOLS</h1>
+				<ul>
+					<li><a href="{{url_for('studentslist')}}">Students</a></li>
+					<li><a href="{{url_for('allapplications')}}">Applications</a></li>
+					<li><a href="{{url_for('interviews')}}">Interviews</a></li>
+					<li><a href="{{url_for('logout')}}">Log out</a></li>
+					<li><a href="{{url_for('all_companies')}}">Companies</a></li>
+					<li><a href="{{url_for('officer_jobs')}}">Jobs</a></li>
+					<li><a href="{{url_for('addjob')}}">ADD Job</a></li>
+					<li><a href="{{url_for('addcompany')}}">ADD company</a></li>
+					<li><a href="{{url_for('addstudent')}}">ADD Student</a></li>
+				</ul>
+			</div>
+			<div class="content" align="center">
+				<div class="topbar">
+					<h2>Welcome!! You are in Interview list Page!! </h2>				 
+				</div>
+
+                <div class="contentbar">
+					<h1>Your Details</h1> </br>
+                    {% block content %}
+						<div class="border">
+							<table class="table table-striped" >
+                                <thead>
+                                  <tr>
+									<th scope="col"></th>
+                                    <th scope="col">Interview_ID</th>
+                                    <th scope="col">Application_ID</th>
+                                    <th scope="col">Interview Date</th>
+                                    <th scope="col">Interview Mode</th>
+									<th scope="col">Result</th>
+									<th scope="col">Update Status</th>
+									<th></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in interviews %}
+                                  <tr>
+							
+                                    <td></td>
+                                    <th scope="row">{{ i['Interview_ID'] }}</th>
+                                    <td>{{ i['Application_ID'] }}</td>
+                                    <td>{{ i['Interview_Date'] }}</td>
+                                    <td>{{ i['Interview_Type'] }}</td>
+									<td>{{i['Interview_Result']}}</td>
+									<td>
+										<form action="{{ url_for('update_status') }}" method="POST">
+											<select name="status" id="statusSelect_{{ i['Application_ID'] }}">
+												<option value="Pending" selected="selected">Pending</option>
+												<option value="Passed">Passed</option>
+												<option value="Failed">Failed</option>
+											</select>
+											<input type="hidden" name="app_id" value="{{ i['Application_ID'] }}">
+											<button type="submit">Update Status</button>
+										</form>
+									</td>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+						</div>
+						{% endblock %}			 
+				</div>
+
+			</div>
+		</div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+</html>
